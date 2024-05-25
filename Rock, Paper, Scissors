@@ -1,0 +1,58 @@
+//  Rock, Paper, Scissors. Write a program that plays the popular scissor-rock-paper
+//  game. (A scissor can cut paper, a rock can crush scissor, and a paper can cover
+//  rock). The program randomly generates a number 0, 1, or 2 representing the scissor,
+//  rock, and paper. The program prompts the user to enter a number 0, 1, or 2 and
+//  displays a message indicating whether the user or the computer wins, loses, or
+//  ties. See the sample output, as provided in your textbook.
+
+import java.util.Scanner;
+
+public class RockPaperScissors {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        // Set min max values (0-2)
+        int min = 0;
+        int max = 2;
+        int range = max - min + 1;
+
+        //Create a random number generator for rock, paper and scissor variables
+        int computer = (int)(Math.random() * range) + min;
+
+        // Prompt user for number 0, 1 or 2
+        System.out.print("scissor (0), rock (1), paper (2): ");
+        int guess = input.nextInt();
+
+        // Create if/else statements for rules of gameplay
+        if (computer == 2 && guess == 2) {
+            System.out.println("The computer is paper. You are paper. It is a draw.");
+        }
+        else if (computer == 2 && guess == 1) {
+            System.out.println("The computer is paper. You are rock. You lose.");
+        }
+        else if (computer == 2 && guess == 0) {
+            System.out.println("The Computer is paper.You are scissors. You win.");
+        }
+        else if (computer == 1 && guess == 2) {
+            System.out.println("The computer is rock. You are paper. You win.");
+        }
+        else if (computer == 1 && guess == 1) {
+            System.out.println("The computer is rock. You are rock. It is a draw.");
+        }
+        else if (computer == 1 && guess == 0) {
+            System.out.println("The computer is rock. You are scissors. You lose.");
+        }
+        else if (computer == 0 && guess == 2) {
+            System.out.println("The computer is scissors. You are paper. You lose");
+        }
+        else if (computer == 0 && guess == 1) {
+            System.out.println("The computer is scissors. You are rock. You win");
+        }
+        else if (computer == 0 && guess == 0) {
+            System.out.println("The computer is scissors. You are scissors. It is a draw.");
+        }
+        else {
+            System.out.println("Number is invalid.");
+        }
+    }
+}
